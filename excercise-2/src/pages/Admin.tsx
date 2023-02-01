@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
-import { Box, Button, Stack, Avatar, Pagination } from '@mui/material/';
+import { Box, Button, Stack, Pagination } from '@mui/material/';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddIcon from '@mui/icons-material/Add';
 
@@ -12,7 +12,6 @@ import DeleteRocketModal from '../components/DeleteRocketModal';
 import TableItem from '../components/TableItem';
 import IRocket from '../../types/IRocket';
 import optionalRocket from '../assets/optionalRocket.png';
-import { Delete } from '@mui/icons-material';
 
 type RocketState = {
   totalPage: number;
@@ -56,7 +55,6 @@ const Admin = () => {
   useEffect(() => {
     fetchRockets();
   }, [page]);
-
 
   const onButtonClick = (id: string) => {
     history.push(`/rockets/${id}`);
@@ -108,9 +106,15 @@ const Admin = () => {
   ];
   const TableValues = rockets?.rockets.map((rocket) => {
     return [
-      <Avatar
-        style={{ alignSelf: 'center' }}
-        alt='image of rocket'
+      <img
+        style={{
+          maxWidth: '50px',
+          width: '50px',
+          height: '50px',
+          maxHeight: '50px',
+          borderRadius: '50%',
+        }}
+        alt='rocket'
         src={rocket?.photo ? rocket.photo : optionalRocket}
       />,
       rocket?.name,
