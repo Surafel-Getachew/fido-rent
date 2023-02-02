@@ -18,6 +18,8 @@ Sample .env file is attached in /excercise-1 and can be used to run the project 
 1. cd ./excercise-2
 2. run `npm install`
 3. run `npm start `
+4. There are two pages one is public page that is found in homepage http://localhost:3000/ and other is 
+   Admin page that is found in http://localhost:3000/admin
 
 ## Enviroment variables
 
